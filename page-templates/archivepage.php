@@ -22,27 +22,27 @@ get_header(); ?>
                     <?php
 
                         $parentID = wp_get_post_parent_id( $post->ID );
+                        $category = $post->post_name;
 
                     global $post;
                     $child_pages_query_args = array(
-                        'post_type'   => 'page',
-                        'post_parent' => $parentID,
-                        'orderby'     => 'menu_order',
-                        'posts_per_page'=>-1
+                        'post_type'         => 'page',
+                        'post_parent'       => $parentID,
+                        'order'             => 'ASC',
+                        'orderby'           => 'title',
+                        'posts_per_page'    => -1,
+                        'category_name'     => $category
                     );
                     $child_pages = new WP_Query( $child_pages_query_args );
                     ?>
 
                     <?php if ( $child_pages->have_posts() ) :  while ( $child_pages->have_posts() ) : $child_pages->the_post(); ?>
 
-                    <div class="col-lg-6">
-                    <div class="featured-pwrap">  
-                        <?php if ( has_post_thumbnail() ) { the_post_thumbnail('home-pages-thumb'); } else { ?>
-                        <img class="attachment-home-pages-thumb" src="<?php bloginfo('template_directory'); ?>/images/default-image.jpg" alt="<?php the_title(); ?>" />
-                        <?php } ?>
-                    <h3><?php the_title(); ?></h3>
-                    <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
-                    </div>
+                    <div class="col-lg-12">
+                        <div class="featured-pwrap">
+                            <h3><?php the_title(); ?></h3>
+                            <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                        </div>
                     </div>
                     <?php endwhile; endif; wp_reset_postdata(); ?>
 
