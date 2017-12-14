@@ -11,13 +11,21 @@
     margin-bottom: 10px;
 }
 
-.box-container>.box>.box-inner {
-    display: none;
-    background: black;
+.box-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s;
+    background-color: black;
 }
 
-.box-container>.box>.box-inner:hover {
-    display: inherit;
+.box:hover .box-inner {
+    opacity: 0.8;
 }
 
 .box-inner-text {
@@ -57,7 +65,8 @@
         padding-right: 15px;
     }
 
-    .box {
+    .box,
+    .box-img {
         height: 167.5px;
         margin-bottom: 0;
     }
@@ -65,14 +74,16 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .box {
+    .box,
+    .box-img {
         height: 222.5px;
     }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .box {
+    .box,
+    .box-img {
         height: 272.5px;
     }
 }

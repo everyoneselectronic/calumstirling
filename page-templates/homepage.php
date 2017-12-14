@@ -40,12 +40,12 @@ get_header(); ?>
                         
                                 <div class="col-sm-<?php echo $columns[$rowNum][$colNum]; ?> box-container no-gutter">
                                     <div class="box size-<?php echo $columns[$rowNum][$colNum]; ?>">
+                                        <div class="box-img" style="background: black url('<?php echo the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;"></div>
                                         <div class="box-inner">
                                             <div class="box-inner-text">
                                                 <h3><?php the_title(); ?></h3>
                                                 <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
                                             </div>
-                                            <div class="box-inner-img" style="background: black url('<?php echo the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;"></div>
                                         </div>
                                     </div>
                                 </div>
