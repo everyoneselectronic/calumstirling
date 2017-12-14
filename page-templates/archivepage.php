@@ -24,27 +24,54 @@ get_header(); ?>
                         $parentID = wp_get_post_parent_id( $post->ID );
                         $category = $post->post_name;
 
-                    global $post;
-                    $child_pages_query_args = array(
-                        'post_type'         => 'page',
-                        'post_parent'       => $parentID,
-                        'order'             => 'ASC',
-                        'orderby'           => 'title',
-                        'posts_per_page'    => -1,
-                        'category_name'     => $category
-                    );
-                    $child_pages = new WP_Query( $child_pages_query_args );
-                    ?>
+                        $columns = [
+                            ["4","3","5"],
+                            ["5","4","3"],
+                            ["3","5","4"]
+                        ];
 
-                    <?php if ( $child_pages->have_posts() ) :  while ( $child_pages->have_posts() ) : $child_pages->the_post(); ?>
+                        $rowNum = 0;
+                        $colNum = 0;
 
-                    <div class="col-lg-12">
-                        <div class="featured-pwrap">
-                            <h3><?php the_title(); ?></h3>
-                            <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                        global $post;
+                        $child_pages_query_args = array(
+                            'post_type'         => 'page',
+                            'post_parent'       => $parentID,
+                            'order'             => 'ASC',
+                            'orderby'           => 'title',
+                            'posts_per_page'    => -1,
+                            'category_name'     => $category
+                        );
+
+                        $child_pages = new WP_Query( $child_pages_query_args );
+                        ?>
+
+                        <div class="row">
+
+                            <?php if ( $child_pages->have_posts() ) :  while ( $child_pages->have_posts() ) : $child_pages->the_post(); ?>
+
+                                <div class="col-md-<?php echo $columns[$rowNum][$colNum]; ?>">
+                                    <div class="featured-pwrap">
+                                        <h3><?php the_title(); ?></h3>
+                                        <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                                    </div>
+                                </div>
+
+                                <?php $colNum++; ?>
+                                <?php if ( $colNum > 2) : ?>
+                                    </div>
+                                    <div class="row">
+                                <?php $colNum = 0; $rowNum++; endif; ?>
+
+                                <?php 
+                                    if ( $rowNum > 2) {
+                                        $rowNum = 0;
+                                    }
+                                ?>
+
+                            <?php endwhile; endif; wp_reset_postdata(); ?>
+
                         </div>
-                    </div>
-                    <?php endwhile; endif; wp_reset_postdata(); ?>
 
             </main><!-- #main -->
                
