@@ -18,6 +18,7 @@ get_header(); ?>
             <div id="primary" class="<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>col-md-8<?php else : ?>col-md-12<?php endif; ?> content-area">
                
             <main id="main" class="site-main" role="main">
+                <h3><?php the_title(); ?></h3>
 
                     <?php
 
