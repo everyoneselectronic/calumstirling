@@ -54,25 +54,27 @@ get_header(); ?>
                         $child_pages = new WP_Query( $child_pages_query_args );
                         ?>
 
-                        <div class="row">                
+                        <div class="row box-row">                
 
                             <?php if ( $child_pages->have_posts() ) :  while ( $child_pages->have_posts() ) : $child_pages->the_post(); ?>
                                 <?php $currentYear = get_the_date('Y'); ?>
                                 <?php if ( $currentYear != $previousYear ) : ?>
                                     </div>
-                                    <div class="row">
+                                    <div class="row box-row">
                                         <div class="col-xs-12">
                                             <h3><?php echo $currentYear; ?></h3>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row box-row">
                                     <?php $colNum = 0; $rowNum++; if ( $rowNum > 2) { $rowNum = 0; }; $previousYear = $currentYear; ?>
                                 <?php endif; ?>
 
-                                <div class="col-md-<?php echo $columns[$rowNum][$colNum]; ?> box">
-                                    <div class="featured-pwrap">
-                                        <h3><?php the_title(); ?></h3>
-                                        <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                                <div class="col-sm-<?php echo $columns[$rowNum][$colNum]; ?> box-container no-gutter">
+                                    <div class="box size-<?php echo $columns[$rowNum][$colNum]; ?>" style="background: black url('<?php echo the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;">
+                                        <div class="box-inner">
+                                            <h3><?php the_title(); ?></h3>
+                                            <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -80,7 +82,7 @@ get_header(); ?>
                                 <?php $colNum++; ?>
                                 <?php if ( $colNum > 2) : ?>
                                     </div>
-                                    <div class="row">
+                                    <div class="row box-row">
                                 <?php $colNum = 0; $rowNum++; endif; ?>
 
                                 <?php if ( $rowNum > 2) { $rowNum = 0; } ?>
