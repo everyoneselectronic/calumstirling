@@ -9,7 +9,6 @@
 
 get_header(); ?>
 
-get_header(); ?>
 <div class="wrapper" id="page-wrapper">
     
     <div  id="content" class="container">
@@ -20,11 +19,46 @@ get_header(); ?>
            
                  <main id="main" class="site-main" role="main">
 
-                    <?php while ( have_posts() ) : the_post(); ?>
+                    <?php 
 
-                        <?php get_template_part( 'loop-templates/content', 'page' ); ?>
+                        $columns = [
+                            ["4 first","3 middle","5 last"],
+                            ["5 first","4 middle","3 last"],
+                            ["3 first","5 middle","4 last"]
+                        ];
 
-                    <?php endwhile; // end of the loop. ?>
+                        $rowNum = 0;
+                        $colNum = 0;
+
+                        $posts = get_field('selected_works');
+
+                        if( $posts ):
+                    ?>
+                    <div class="row"> 
+                    <?php foreach( $posts as $post): ?>
+                        <?php setup_postdata($post); ?>
+                        
+                                <div class="col-md-<?php echo $columns[$rowNum][$colNum]; ?> box">
+                                    <div class="featured-pwrap">
+                                        <h3><?php the_title(); ?></h3>
+                                        <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                                    </div>
+                                </div>
+
+                        
+                                <?php $colNum++; ?>
+                                <?php if ( $colNum > 2) : ?>
+                                    </div>
+                                    <div class="row">
+                                <?php $colNum = 0; $rowNum++; endif; ?>
+
+                                <?php if ( $rowNum > 2) { $rowNum = 0; } ?>
+
+
+                    <?php endforeach; ?>
+                    </div>
+                    <?php wp_reset_postdata(); ?>
+                <?php endif; ?>
 
                 </main><!-- #main -->
                

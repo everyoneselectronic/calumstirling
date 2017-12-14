@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+.box >.featured-pwrap {
+	height: 300px;
+	background: red;
+}
+
+.box h3 {
+	margin-top: 0;
+}
+
+/*4 first","3 middle","5 last*/
+
+
+
 @media (min-width: 768px) {
     .navbar {
         border-radius: 0;
