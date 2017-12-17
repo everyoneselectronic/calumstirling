@@ -1,11 +1,99 @@
 @charset "UTF-8";
 
-/*NAVBAR STYLES*/
-.navbar {
-    border-radius: 0;
+body {
+    font-family: proxima_nova_rgregular;
+    letter-spacing: 1px;
 }
 
-.box {
+/*NAVBAR STYLES*/
+.navbar,
+.navbar-brand {
+    border-radius: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-brand p.navbar-brand-tag {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.navbar-grey {
+    background: #9e9b92;
+    min-height: 60px;
+}
+
+.navbar-grey a {
+    color: white;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus,
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus,
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background: inherit;
+    color: black;
+}
+
+.navbar-toggle .icon-bar {
+    background: white;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 34px;
+        padding-bottom: 4px;
+    }
+
+    .dropdown-menu {
+        min-width: 126px;
+        left:0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: 1px #9e9b92 solid;
+    }
+
+    .navbar-right .dropdown-menu {
+        left: 0;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+     }
+}
+
+.navbar .dropdown > .dropdown-toggle > .caret {
+    display: none;
+}
+
+/*home and archive grid pages*/
+
+.archive-title {
+    margin: 0;
+    font-weight: bold;
+}
+
+.archive-year {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+div:nth-child(3) > div > h4.archive-year {
+    margin-top: 0;
+}
+
+.box,
+.box-img {
     position: relative;
     height: 300px;
     margin-bottom: 10px;
@@ -36,6 +124,7 @@
     text-align: center;
     margin-top: 0;
     color: white;
+    width: 100%;
 }
 
 /* Extra small devices (phones, less than 768px) */
@@ -86,4 +175,10 @@
     .box-img {
         height: 272.5px;
     }
+}
+
+
+/* Work page */
+.columnizer .first.column p {
+    padding-right: 30px;
 }

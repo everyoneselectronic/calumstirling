@@ -31,26 +31,28 @@ get_header(); ?>
                         $colNum = 0;
 
                         $posts = get_field('selected_works');
-
-                        if( $posts ):
                     ?>
-                    <div class="row box-row"> 
-                    <?php foreach( $posts as $post): ?>
-                        <?php setup_postdata($post); ?>
-                        
+
+                    <?php if( $posts ) : ?>
+                        <div class="row box-row"> 
+                        <?php foreach( $posts as $post): ?>
+                            <?php setup_postdata($post); ?>
+                            
                                 <div class="col-sm-<?php echo $columns[$rowNum][$colNum]; ?> box-container no-gutter">
-                                    <div class="box size-<?php echo $columns[$rowNum][$colNum]; ?>">
-                                        <div class="box-img" style="background: black url('<?php echo the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;"></div>
-                                        <div class="box-inner">
-                                            <div class="box-inner-text">
-                                                <h3><?php the_title(); ?></h3>
-                                                <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <div class="box size-<?php echo $columns[$rowNum][$colNum]; ?>">
+                                            <div class="box-img" style="background: black url('<?php echo the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;"></div>
+                                            <div class="box-inner">
+                                                <div class="box-inner-text">
+                                                    <h3><?php the_title(); ?></h3>
+                                                    <?php $cat = array(); foreach((get_the_category()) as $category) { array_push($cat, $category->cat_name); } ?>
+                                                    <p><em><?php echo implode(', ', $cat); ?></em></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
 
-                        
                                 <?php $colNum++; ?>
                                 <?php if ( $colNum > 2) : ?>
                                     </div>
@@ -59,11 +61,10 @@ get_header(); ?>
 
                                 <?php if ( $rowNum > 2) { $rowNum = 0; } ?>
 
-
-                    <?php endforeach; ?>
-                    </div>
-                    <?php wp_reset_postdata(); ?>
-                <?php endif; ?>
+                        <?php endforeach; ?>
+                        </div>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endif; ?>
 
                 </main><!-- #main -->
                

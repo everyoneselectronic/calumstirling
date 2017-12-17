@@ -14,21 +14,21 @@ Description
 -->
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	
+		<?php 
 
-	<?php 
+		$images = get_field('gallery');
+		$size = 'full'; // (thumbnail, medium, large, full or custom size)
 
-	$images = get_field('gallery');
-	$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-	if( $images ): ?>
-	    <ul>
-	        <?php foreach( $images as $image ): ?>
-	            <li>
-	            	<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-	            </li>
-	        <?php endforeach; ?>
-	    </ul>
-	<?php endif; ?>
+		if( $images ): ?>
+		    <div class="owl-carousel owl-theme">
+		        <?php foreach( $images as $image ): ?>
+		            <div class="item">
+		            	<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+		            </div>
+		        <?php endforeach; ?>
+		    </div>
+		<?php endif; ?>
 
 	<header class="entry-header">
 
@@ -36,7 +36,7 @@ Description
 
 	</header><!-- .entry-header -->
     
-	<div class="entry-content">
+	<div class="entry-content columnizer" style="clear:both;">
 
 		<?php the_field('description'); ?>
 

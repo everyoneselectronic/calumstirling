@@ -20,7 +20,7 @@ get_header(); ?>
             <main id="main" class="site-main" role="main">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h3><?php the_title(); ?></h3>
+                        <h3 class="archive-title"><?php the_title(); ?></h3>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@ get_header(); ?>
                                     </div>
                                     <div class="row box-row">
                                         <div class="col-xs-12">
-                                            <h3><?php echo $currentYear; ?></h3>
+                                            <h4 class="archive-year"><?php echo $currentYear; ?></h4>
                                         </div>
                                     </div>
                                     <div class="row box-row">
@@ -70,18 +70,20 @@ get_header(); ?>
                                 <?php endif; ?>
 
                                 <div class="col-sm-<?php echo $columns[$rowNum][$colNum]; ?> box-container no-gutter">
-                                    <div class="box size-<?php echo $columns[$rowNum][$colNum]; ?>">
-                                        <div class="box-img" style="background: black url('<?php echo the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;"></div>
-                                        <div class="box-inner">
-                                            <div class="box-inner-text">
-                                                <h3><?php the_title(); ?></h3>
-                                                <a href="<?php the_permalink(); ?>" class="futured-more">Read more</a>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <div class="box size-<?php echo $columns[$rowNum][$colNum]; ?>">
+                                            <div class="box-img" style="background: black url('<?php echo the_post_thumbnail_url(); ?>') no-repeat center center; background-size: cover;"></div>
+                                            <div class="box-inner">
+                                                <div class="box-inner-text">
+                                                    <h3><?php the_title(); ?></h3>
+                                                    <?php $cat = array(); foreach((get_the_category()) as $category) { array_push($cat, $category->cat_name); } ?>
+                                                    <p><em><?php echo implode(', ', $cat); ?></em></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
 
-                        
                                 <?php $colNum++; ?>
                                 <?php if ( $colNum > 2) : ?>
                                     </div>
