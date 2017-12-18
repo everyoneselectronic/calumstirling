@@ -29,9 +29,9 @@
 
         <nav class="site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                             
-            <div class="navbar navbar-grey">
+            <div class="navbar navbar-custom">
 
-                <div class="container">
+                <div class="container-fluid">
 
                     <div class="row">
 
@@ -48,7 +48,7 @@
                                 </button>
 
                                 <!-- Your site title as branding in the menu -->
-                                <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?><p class="navbar-brand-tag">Artworks &amp; Projects</p></a>
+                                <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php echo strtoupper( get_bloginfo( 'name' ) );  ?><p class="navbar-brand-tag">Artworks &amp; Projects</p></a>
 
                             </div>
 
