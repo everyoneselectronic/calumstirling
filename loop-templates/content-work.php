@@ -15,66 +15,39 @@ Description
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 
-	<?php
+<?php
 
-	// check if the flexible content field has rows of data
-	if( have_rows('media-gallery') ):
+// check if the flexible content field has rows of data
+if( have_rows('media-gallery') ):
 
-	 	// loop through the rows of data
-	    while ( have_rows('media-gallery') ) : the_row();
+ 	// loop through the rows of data
+    while ( have_rows('media-gallery') ) : the_row();
 
-			// check current row layout
-	        if( get_row_layout() == 'gallery' ):
+		// check current row layout
+        if( get_row_layout() == 'gallery' ):
 
-	        	// check if the nested repeater field has rows of data
-	        	if( have_rows('gallery') ):
+        	$images = get_sub_field('images');
 
-				 	echo '<div class="owl-carousel owl-theme">';
+    		if( $images ):
 
-				 	// loop through the rows of data
-				    while ( have_rows('images') ) : the_row();
+			 	echo '<div class="owl-carousel owl-theme">';
 
-						$images = get_sub_field('images');
-						$size = 'full';
+			 	// loop through the rows of data
+			    foreach ($images as $image) {
+			    	echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />';
+			    }
 
-						foreach ($images as $image) {
-							echo '<div class="item">';
-		            		echo wp_get_attachment_image( $image['ID'], $size );
-		            		echo '</div>';
-						}
+				echo '</div>';
 
-					endwhile;
+			endif;
 
-					echo '</div>';
+        endif;
 
-				endif;
+    endwhile;
 
-	        endif;
+endif;
 
-	    endwhile;
-
-	else :
-
-	    // no layouts found
-
-	endif;
-
-	?>
-	
-		<?php 
-
-		$images = get_field('gallery');
-		$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-		if( $images ): ?>
-		    <div class="owl-carousel owl-theme">
-		        <?php foreach( $images as $image ): ?>
-		            <div class="item">
-		            	<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-		            </div>
-		        <?php endforeach; ?>
-		    </div>
-		<?php endif; ?>
+?>
 
 	<header class="entry-header">
 
