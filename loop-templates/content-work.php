@@ -13,7 +13,53 @@ INFO
 Description
 -->
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+
+	<?php
+
+	// check if the flexible content field has rows of data
+	if( have_rows('media-gallery') ):
+
+	 	// loop through the rows of data
+	    while ( have_rows('media-gallery') ) : the_row();
+
+			// check current row layout
+	        if( get_row_layout() == 'gallery' ):
+
+	        	// check if the nested repeater field has rows of data
+	        	if( have_rows('gallery') ):
+
+				 	echo '<div class="owl-carousel owl-theme">';
+
+				 	// loop through the rows of data
+				    while ( have_rows('images') ) : the_row();
+
+						$images = get_sub_field('images');
+						$size = 'full';
+
+						foreach ($images as $image) {
+							echo '<div class="item">';
+		            		echo wp_get_attachment_image( $image['ID'], $size );
+		            		echo '</div>';
+						}
+
+					endwhile;
+
+					echo '</div>';
+
+				endif;
+
+	        endif;
+
+	    endwhile;
+
+	else :
+
+	    // no layouts found
+
+	endif;
+
+	?>
 	
 		<?php 
 
