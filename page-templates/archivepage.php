@@ -11,7 +11,7 @@ get_header(); ?>
 
 <div class="wrapper" id="archive-wrapper">
     
-    <div  id="content" class="container">
+    <div  id="content" class="container-fluid">
 
         <div class="row">
         
