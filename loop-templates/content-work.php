@@ -23,6 +23,7 @@ if( have_rows('media-gallery') ):
 
     		if( $images ):
     			$num = 1;
+    			$totalImages = count($images);
 			 	echo '<div class="owl-carousel owl-centered owl-theme">';
 
 			 	// loop through the rows of data
@@ -31,7 +32,7 @@ if( have_rows('media-gallery') ):
 			    	'<div>
 			    		<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />
 			    		<div class="owl-textarea">
-				    		<div class="owl-number"><p>' . $num . ' of '. count($images) .'</p></div>
+				    		<div class="owl-number"><p>' . $num . ' of '. $totalImages .'</p></div>
 				    		<div class="owl-caption"><p>Test caption</p></div>
 				    	</div>
 			    	</div>';
