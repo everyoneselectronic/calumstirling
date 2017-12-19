@@ -6,13 +6,6 @@
  */
 ?>
 
-<!-- 
-Gallery
-Title
-INFO
-Description
--->
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 
 <?php
@@ -30,11 +23,18 @@ if( have_rows('media-gallery') ):
 
     		if( $images ):
 
-			 	echo '<div class="owl-carousel owl-theme">';
+			 	echo '<div class="owl-carousel owl-centered owl-theme">';
 
 			 	// loop through the rows of data
 			    foreach ($images as $image) {
-			    	echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />';
+			    	echo 
+			    	'<div>
+			    		<img src="' . $image['url'] . '" alt="' . $image['alt'] . '" />
+			    		<div class="owl-textarea">
+				    		<div class="owl-number"><p>1 of 4</p></div>
+				    		<div class="owl-caption"><p>Test caption</p></div>
+				    	</div>
+			    	</div>';
 			    }
 
 				echo '</div>';

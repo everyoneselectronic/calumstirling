@@ -5,12 +5,13 @@
             items:(understrap_slider_variables.items),
             loop:true,
             autoplay:false,
-            animateOut: 'fadeOut',
-            animateIn: 'fadeIn',
-            nav: true,
-            dots: false,
+            nav:true,
+            dots:false,
             margin:0,
-            autoHeight:true
+            autoHeight:true,
+            center:true,
+            lazyLoad:true,
+            video:true
         });
 
         jQuery('.play').on('click',function(){
