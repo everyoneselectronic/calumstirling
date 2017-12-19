@@ -9,15 +9,21 @@
             dots:false,
             margin:0,
             autoHeight:true,
-            center:true,
             lazyLoad:true,
             video:true
         });
 
-        jQuery('.play').on('click',function(){
-            owl.trigger('autoplay.play.owl',[1000])
+        owl.on('changed.owl.carousel', function(event) {
+            var item = event.item.index-2;
+
+            var num = jQuery('.owl-item').not('.cloned').eq(item).find('img').data('slide-number');
+            jQuery('.owl-information>.owl-number>p>.owl-number-data').text(num);
+
+            var caption = jQuery('.owl-item').not('.cloned').eq(item).find('img').data('caption');
+            jQuery('.owl-information>.owl-caption>p').text(num);
         });
-        jQuery('.stop').on('click',function(){
-            // owl.trigger('autoplay.stop.owl')
-        });
+
+        // jQuery('.play').on('click',function(){
+            // owl.trigger('autoplay.play.owl',[1000])
+        // });
     });

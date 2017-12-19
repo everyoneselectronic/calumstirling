@@ -189,9 +189,11 @@ div:nth-child(3) > div > h4.archive-year {
 
 /* Work page */
 .columnizer .first.column p {
-    padding-right: 30px;
+    padding-right: 15px;
 }
-
+.columnizer .last.column p {
+    padding-left: 15px;
+}
 /*.owl-centered .owl-stage {
   display: table !important;
 }*/
@@ -205,18 +207,17 @@ div:nth-child(3) > div > h4.archive-year {
   text-align: center;
 }
 
-.owl-carousel .owl-textarea {
-    background-color: white;
+/*OWL TEXT*/
+.owl-information {
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    min-height: 20px;
 }
 
-.owl-carousel .owl-textarea .owl-caption {
+.owl-information .owl-caption {
     float: right;
 }
 
-.owl-carousel .owl-textarea .owl-number {
+.owl-information .owl-number {
     float: left;
 }
 
@@ -225,6 +226,8 @@ div:nth-child(3) > div > h4.archive-year {
     margin: 0;
 }
 
+
+/* OWL NAV*/
 .owl-carousel .owl-nav {
     display: none;
 }
