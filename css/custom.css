@@ -69,6 +69,7 @@ body {
         border-radius: 0;
         box-shadow: none;
         border-top: 1px #55CE6F solid;
+        padding: 0;
     }
 
     .navbar-right .dropdown-menu {
@@ -84,6 +85,61 @@ body {
 .navbar .dropdown > .dropdown-toggle > .caret {
     display: none;
 }
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    background: white;
+    color: #FE5F55;
+}
+/*Nav colours*/
+/*.dropdown-menu > li > a[title="Sculpture"]:hover,
+.dropdown-menu > li > a[title="Sculpture"]:focus,
+.dropdown-menu > .active > a[title="Sculpture"],
+.dropdown-menu > .active > a[title="Sculpture"]:hover,
+.dropdown-menu > .active > a[title="Sculpture"]:focus {
+    color:#0c00ff;
+}
+
+.dropdown-menu > li > a[title="Site-specific"]:hover,
+.dropdown-menu > li > a[title="Site-specific"]:focus,
+.dropdown-menu > .active > a[title="Site-specific"],
+.dropdown-menu > .active > a[title="Site-specific"]:hover,
+.dropdown-menu > .active > a[title="Site-specific"]:focus {
+    color: #FE5F55;
+}
+
+.dropdown-menu > li > a[title="Sound"]:hover,
+.dropdown-menu > li > a[title="Sound"]:focus,
+.dropdown-menu > .active > a[title="Sound"],
+.dropdown-menu > .active > a[title="Sound"]:hover,
+.dropdown-menu > .active > a[title="Sound"]:focus {
+    color: #C7EFCF;
+}
+
+.dropdown-menu > li > a[title="Video"]:hover,
+.dropdown-menu > li > a[title="Video"]:focus,
+.dropdown-menu > .active > a[title="Video"],
+.dropdown-menu > .active > a[title="Video"]:hover,
+.dropdown-menu > .active > a[title="Video"]:focus {
+    color: #E63462;
+ }
+
+.dropdown-menu > li > a[title="Drawing"]:hover,
+.dropdown-menu > li > a[title="Drawing"]:focus,
+.dropdown-menu > .active > a[title="Drawing"],
+.dropdown-menu > .active > a[title="Drawing"]:hover,
+.dropdown-menu > .active > a[title="Drawing"]:focus {
+    color: #ef6bcb;
+}
+
+.dropdown-menu > li > a[title="Online"]:hover,
+.dropdown-menu > li > a[title="Online"]:focus,
+.dropdown-menu > .active > a[title="Online"],
+.dropdown-menu > .active > a[title="Online"]:hover,
+.dropdown-menu > .active > a[title="Online"]:focus {
+    color: #00D3CD;
+}*/
+
 
 /*home and archive grid pages*/
 
@@ -146,20 +202,20 @@ div:nth-child(3) > div > h4.archive-year {
     }
 
     .box-row {
-        padding-bottom: 10px;
+        padding-bottom: 5px;
     }
     .box-container.first {
         padding-left: 15px;
-        padding-right: 5px;
+        padding-right: 2.5px;
     }
 
     .box-container.middle {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 2.5px;
+        padding-right: 2.5px;
     }
 
     .box-container.last {
-        padding-left: 5px;
+        padding-left: 2.5px;
         padding-right: 15px;
     }
 
@@ -271,3 +327,13 @@ div:nth-child(3) > div > h4.archive-year {
 .owl-centered .owl-item.active > div {
   display: block;
 }*/
+
+
+.work-info {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.work-info>p {
+    margin: 0;
+}

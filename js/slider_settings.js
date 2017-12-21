@@ -20,7 +20,7 @@
             jQuery('.owl-information>.owl-number>p>.owl-number-data').text(num);
 
             var caption = jQuery('.owl-item').not('.cloned').eq(item).find('img').data('caption');
-            jQuery('.owl-information>.owl-caption>p').text(num);
+            jQuery('.owl-information>.owl-caption>p').text(caption);
         });
 
         // jQuery('.play').on('click',function(){
