@@ -64,7 +64,7 @@
 		        if( get_row_layout() == 'video' ):
 		        	echo '<div class="item" data-slide-number="' . $num . '" data-caption="video"><div class="embed-container">';
 		        	
-					get_sub_field('video');
+					the_sub_field('video');
 
 					echo '</div></div>';
 		        	$num++;
