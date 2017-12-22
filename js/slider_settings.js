@@ -14,13 +14,17 @@
         });
 
         owl.on('changed.owl.carousel', function(event) {
-            var item = event.item.index-2;
 
-            var num = jQuery('.owl-item').not('.cloned').eq(item).find('img').data('slide-number');
+            // get cloned num
+            var cloned = jQuery('.owl-item.cloned').length;
+            var item = event.item.index-cloned/2;
+
+            var num = jQuery('.owl-item').not('.cloned').eq(item).find('.item').data('slide-number');
             jQuery('.owl-information>.owl-number>p>.owl-number-data').text(num);
 
-            var caption = jQuery('.owl-item').not('.cloned').eq(item).find('img').data('caption');
+            var caption = jQuery('.owl-item').not('.cloned').eq(item).find('.item').data('caption');
             jQuery('.owl-information>.owl-caption>p').text(caption);
+
         });
 
         // jQuery('.play').on('click',function(){

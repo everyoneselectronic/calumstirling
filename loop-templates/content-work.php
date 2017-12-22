@@ -26,6 +26,10 @@
 
 		// check if the flexible content field has rows of data
 		if( have_rows('media-gallery') ):
+			echo '<div class="owl-carousel owl-centered owl-theme">';
+			$num = 1;
+			$totalSlides = 0;
+			$firstCaption = "test";
 
 		 	// loop through the rows of data
 		    while ( have_rows('media-gallery') ) : the_row();
@@ -36,12 +40,7 @@
 		        	$images = get_sub_field('images');
 
 		    		if( $images ):
-		    			$num = 1;
-		    			$totalImages = count($images);
-
-					 	echo '<div class="owl-carousel owl-centered owl-theme">';
-
-					 	// loop through the rows of data
+		    		 	// loop through the rows of data
 					    foreach ($images as $image) {
 							$imgURL = $image['url'];
 							$imgALT = $image['alt'];
@@ -51,25 +50,38 @@
 							// if cap then add ral cap else dont add
 
 					    	echo 
-					    	'<div class="item">
-					    		<img src="' . $imgURL . '" alt="' . $imgURL . '" data-slide-number=' . $num . ' data-caption="' . $imgCAP .  '"  />
+					    	'<div class="item" data-slide-number="' . $num . '" data-caption="' . $imgCAP .  '">
+					    		<img src="' . $imgURL . '" alt="' . $imgURL . '" />
 					    	</div>';
 					    	$num++;
+							$totalSlides++;
 					    }
-
-						echo '</div>';
-
-						echo
-				    	'<div class="owl-information">
-				    		<div class="owl-number"><p><span class="owl-number-data">1</span> of '. $totalImages .'</p></div>
-				    		<div class="owl-caption"><p>' . $images[0]['caption'] . '</p></div>
-				    	</div>';
 
 					endif;
 
 		        endif;
 
+		        if( get_row_layout() == 'video' ):
+		        	echo '<div class="item" data-slide-number="' . $num . '" data-caption="video"><div class="embed-container">';
+		        	
+					get_sub_field('video');
+
+					echo '</div></div>';
+		        	$num++;
+					$totalSlides++;
+		        endif;
+
+		        
+
 		    endwhile;
+
+		    echo '</div>';
+
+			echo
+	    	'<div class="owl-information">
+	    		<div class="owl-number"><p><span class="owl-number-data">1</span> of '. $totalSlides .'</p></div>
+	    		<div class="owl-caption"><p>' . $images[0]['caption'] . '</p></div>
+	    	</div>';
 
 		endif;
 

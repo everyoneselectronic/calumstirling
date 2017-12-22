@@ -48,6 +48,16 @@ body {
 }
 
 @media (min-width: 768px) {
+
+    .navbar.navbar-custom .col-xs-12,
+    .content-area .col-xs-12 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .navbar {
+        margin-bottom: 5px;
+    }
     .navbar-brand {
         padding-bottom: 0;
         padding-top: 9px;
@@ -145,7 +155,6 @@ body {
 
 .archive-title {
     margin: 0;
-    font-weight: bold;
 }
 
 .archive-year {
@@ -174,7 +183,7 @@ div:nth-child(3) > div > h4.archive-year {
     width: 100%;
     opacity: 0;
     transition: .5s;
-    background-color: black;
+    background-color: white;
 }
 
 .box:hover .box-inner {
@@ -188,7 +197,7 @@ div:nth-child(3) > div > h4.archive-year {
     transform: translate(-50%,-50%);
     text-align: center;
     margin-top: 0;
-    color: white;
+    color: black;
     width: 100%;
 }
 
@@ -205,7 +214,7 @@ div:nth-child(3) > div > h4.archive-year {
         padding-bottom: 5px;
     }
     .box-container.first {
-        padding-left: 15px;
+        padding-left: 5px;
         padding-right: 2.5px;
     }
 
@@ -216,7 +225,7 @@ div:nth-child(3) > div > h4.archive-year {
 
     .box-container.last {
         padding-left: 2.5px;
-        padding-right: 15px;
+        padding-right: 5px;
     }
 
     .box,
@@ -336,4 +345,23 @@ div:nth-child(3) > div > h4.archive-year {
 
 .work-info>p {
     margin: 0;
+}
+
+
+.embed-container { 
+    position: relative; 
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
